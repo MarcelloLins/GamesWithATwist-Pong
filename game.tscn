@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bve8xyxsb6elv"]
+[gd_scene load_steps=10 format=3 uid="uid://bve8xyxsb6elv"]
 
 [ext_resource type="Script" path="res://ball_handler.gd" id="1_i0s08"]
 [ext_resource type="Texture2D" uid="uid://omq5dg8ov81y" path="res://assets/Board.png" id="3_36rhv"]
@@ -8,10 +8,13 @@
 [ext_resource type="Script" path="res://boundaries/score_boundaries.gd" id="6_scdf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5btt"]
-size = Vector2(7, 730)
+size = Vector2(7, 716.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnwbm"]
-size = Vector2(1280, 7)
+size = Vector2(1291, 6.25)
+
+[sub_resource type="LabelSettings" id="LabelSettings_leqsl"]
+font_size = 55
 
 [node name="Game" type="Node2D"]
 
@@ -21,13 +24,13 @@ script = ExtResource("6_scdf0")
 [node name="PlayerBoundary" type="Area2D" parent="ScoreBoundaries"]
 
 [node name="Collision" type="CollisionShape2D" parent="ScoreBoundaries/PlayerBoundary"]
-position = Vector2(-3.5, 364)
+position = Vector2(-3.5, 365)
 shape = SubResource("RectangleShape2D_u5btt")
 
 [node name="EnemyBoundary" type="Area2D" parent="ScoreBoundaries"]
 
 [node name="Collision" type="CollisionShape2D" parent="ScoreBoundaries/EnemyBoundary"]
-position = Vector2(1283, 364)
+position = Vector2(1281, 365.25)
 shape = SubResource("RectangleShape2D_u5btt")
 
 [node name="BallHandler" type="Node2D" parent="."]
@@ -52,14 +55,35 @@ script = ExtResource("4_g3x1b")
 [node name="TopWall" type="StaticBody2D" parent="Walls"]
 
 [node name="TopWall" type="CollisionShape2D" parent="Walls/TopWall"]
-position = Vector2(641, 2)
+position = Vector2(638.5, 3)
 shape = SubResource("RectangleShape2D_qnwbm")
 
 [node name="BottomWall" type="StaticBody2D" parent="Walls"]
 position = Vector2(1, 7)
 
 [node name="BottomWall" type="CollisionShape2D" parent="Walls/BottomWall"]
-position = Vector2(640, 720)
+position = Vector2(636, 720.25)
 shape = SubResource("RectangleShape2D_qnwbm")
+
+[node name="Score" type="Node2D" parent="."]
+
+[node name="Player" type="Label" parent="Score"]
+offset_left = 570.0
+offset_top = 150.0
+offset_right = 640.0
+offset_bottom = 226.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_leqsl")
+
+[node name="Enemy" type="Label" parent="Score"]
+offset_left = 640.0
+offset_top = 150.0
+offset_right = 710.0
+offset_bottom = 226.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_leqsl")
+horizontal_alignment = 2
 
 [editable path="Player"]

@@ -9,9 +9,10 @@ func _ready() -> void:
 	var ball = ballScene.instantiate()
 	get_parent().call_deferred("add_child", ball)
 
-	scoreBoundaries.connect("player_scored", _on_player_score)
+	scoreBoundaries.connect("player_scored", _on_scored)
+	scoreBoundaries.connect("enemy_scored", _on_scored)
 
-func _on_player_score(ball: Node2D):
+func _on_scored(ball: Node2D):
 	# Respawn Ball
 	ball.queue_free()
 	var newBall = ballScene.instantiate()
