@@ -19,3 +19,4 @@ I'm currently taking a side quest to teach myself how to make 2D games in Godot.
 # Assets used:
 
 * Simple Pong Assets: https://myebstudios.itch.io/simple-ping-pong-assets
+* 16 Bit Font: https://joebrogers.itch.io/bitpotion

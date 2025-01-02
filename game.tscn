@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bve8xyxsb6elv"]
+[gd_scene load_steps=16 format=3 uid="uid://bve8xyxsb6elv"]
 
 [ext_resource type="Script" path="res://ball_handler.gd" id="1_i0s08"]
 [ext_resource type="Texture2D" uid="uid://omq5dg8ov81y" path="res://assets/Board.png" id="3_36rhv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bhe6om0vddf4h" path="res://enemy/enemy.tscn" id="5_vlnr6"]
 [ext_resource type="Script" path="res://boundaries/score_boundaries.gd" id="6_scdf0"]
 [ext_resource type="Script" path="res://score.gd" id="7_x6dwr"]
+[ext_resource type="FontFile" uid="uid://wnov37ki34fy" path="res://assets/BitPotionExt.ttf" id="8_0njy4"]
 [ext_resource type="Script" path="res://timer.gd" id="8_hkry6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5btt"]
@@ -15,8 +16,17 @@ size = Vector2(7, 716.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnwbm"]
 size = Vector2(1291, 6.25)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ca6vy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h51bj"]
+font = ExtResource("8_0njy4")
+font_size = 80
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1c7uh"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_leqsl"]
-font_size = 55
+font = ExtResource("8_0njy4")
+font_size = 90
 
 [node name="Game" type="Node2D"]
 
@@ -71,23 +81,31 @@ shape = SubResource("RectangleShape2D_qnwbm")
 script = ExtResource("7_x6dwr")
 
 [node name="Player" type="Label" parent="Score"]
+material = SubResource("ShaderMaterial_ca6vy")
 offset_left = 567.0
 offset_top = 317.0
-offset_right = 637.0
-offset_bottom = 393.0
-text = "0
-"
-label_settings = SubResource("LabelSettings_leqsl")
+offset_right = 636.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+label_settings = SubResource("LabelSettings_h51bj")
+
+[node name="Timer" type="Timer" parent="Score/Player"]
+wait_time = 3.0
 
 [node name="Enemy" type="Label" parent="Score"]
-offset_left = 637.0
+material = SubResource("ShaderMaterial_1c7uh")
+offset_left = 638.0
 offset_top = 317.0
 offset_right = 707.0
-offset_bottom = 393.0
-text = "0
-"
-label_settings = SubResource("LabelSettings_leqsl")
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+label_settings = SubResource("LabelSettings_h51bj")
 horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="Score/Enemy"]
+wait_time = 3.0
 
 [node name="Timer" type="Node2D" parent="."]
 script = ExtResource("8_hkry6")

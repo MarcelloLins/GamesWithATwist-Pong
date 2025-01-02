@@ -7,7 +7,7 @@ var timeLeft: int
 func _ready() -> void:
 	timeLeft = 60 # seconds
 	label.text = str(timeLeft)
-	timer.connect("timeout", update_label)
+	timer.timeout.connect(update_label)
 
 func update_label():
 	timeLeft -= 1

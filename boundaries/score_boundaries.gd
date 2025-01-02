@@ -9,8 +9,8 @@ signal enemy_scored(body: Node2D)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	playerBoundary.connect("body_entered", _on_body_entered_player_boundary)
-	enemyBoundary.connect("body_entered", _on_body_entered_enemy_boundary)
+	playerBoundary.body_entered.connect(_on_body_entered_player_boundary)
+	enemyBoundary.body_entered.connect(_on_body_entered_enemy_boundary)
 
 # Signal-based approach to notifying both the ball and score handlers that someone scored
 func _on_body_entered_player_boundary(body: Node2D):

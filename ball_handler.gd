@@ -9,8 +9,8 @@ func _ready() -> void:
 	var ball = ballScene.instantiate()
 	get_parent().call_deferred("add_child", ball)
 
-	scoreBoundaries.connect("player_scored", _on_scored)
-	scoreBoundaries.connect("enemy_scored", _on_scored)
+	scoreBoundaries.player_scored.connect(_on_scored)
+	scoreBoundaries.enemy_scored.connect( _on_scored)
 
 func _on_scored(ball: Node2D):
 	# ignores nodes that aren't the ball (in case two collision areas merge and result in the player paddle being received here)
