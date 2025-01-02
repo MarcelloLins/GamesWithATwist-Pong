@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdeetxkcj20qn"]
+
+[ext_resource type="Script" path="res://boundaries/score_boundaries.gd" id="1_dywbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5btt"]
+size = Vector2(7, 730)
+
+[node name="ScoreBoundaries" type="Node2D"]
+script = ExtResource("1_dywbx")
+
+[node name="PlayerBoundary" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="PlayerBoundary"]
+position = Vector2(-3.5, 364)
+shape = SubResource("RectangleShape2D_u5btt")
+
+[node name="EnemyBoundary" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="EnemyBoundary"]
+position = Vector2(1283, 364)
+shape = SubResource("RectangleShape2D_u5btt")

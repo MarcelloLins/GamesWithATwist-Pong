@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://i5i4ajbu01qk"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_xu777"]
+[ext_resource type="Texture2D" uid="uid://ci7qps7fgey26" path="res://assets/Player.png" id="2_41s4i"]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(3, 370)
+motion_mode = 1
+script = ExtResource("1_xu777")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+texture = ExtResource("2_41s4i")
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-5, -302)
+scale = Vector2(0.96875, 1.00158)
+polygon = PackedVector2Array(5, 243, 11, 243, 17, 247, 21, 252, 21, 351, 19, 355, 15, 359, 11, 362, 5, 362)

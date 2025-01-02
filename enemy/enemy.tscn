@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhe6om0vddf4h"]
+
+[ext_resource type="Texture2D" uid="uid://cx2uy250j4h4j" path="res://assets/Enemy.png" id="1_frapj"]
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(1270, 371)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -8)
+texture = ExtResource("1_frapj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(6, -67, 0, -67, -6, -63, -10, -57, -10, 41, -6, 47, 0, 51, 6, 51)

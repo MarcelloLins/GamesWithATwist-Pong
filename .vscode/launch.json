@@ -1,0 +1,16 @@
+{
+	"configurations": [
+	{
+		"name": "GDScript: Launch Main",
+		"type": "godot",
+		"request": "launch",
+		"scene": "main",
+		"project": "",
+		"debug_collisions": false,
+		"debug_paths": false,
+		"debug_navigation": false,
+		"additional_options": "",
+		"debugServer": 6006,
+	}
+	],
+}

@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://bve8xyxsb6elv"]
+
+[ext_resource type="Script" path="res://ball_handler.gd" id="1_i0s08"]
+[ext_resource type="Texture2D" uid="uid://omq5dg8ov81y" path="res://assets/Board.png" id="3_36rhv"]
+[ext_resource type="Script" path="res://enemy/enemy.gd" id="4_g3x1b"]
+[ext_resource type="PackedScene" uid="uid://i5i4ajbu01qk" path="res://player/player.tscn" id="4_i8i34"]
+[ext_resource type="PackedScene" uid="uid://bhe6om0vddf4h" path="res://enemy/enemy.tscn" id="5_vlnr6"]
+[ext_resource type="Script" path="res://boundaries/score_boundaries.gd" id="6_scdf0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5btt"]
+size = Vector2(7, 730)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnwbm"]
+size = Vector2(1280, 7)
+
+[node name="Game" type="Node2D"]
+
+[node name="ScoreBoundaries" type="Node2D" parent="."]
+script = ExtResource("6_scdf0")
+
+[node name="PlayerBoundary" type="Area2D" parent="ScoreBoundaries"]
+
+[node name="Collision" type="CollisionShape2D" parent="ScoreBoundaries/PlayerBoundary"]
+position = Vector2(-3.5, 364)
+shape = SubResource("RectangleShape2D_u5btt")
+
+[node name="EnemyBoundary" type="Area2D" parent="ScoreBoundaries"]
+
+[node name="Collision" type="CollisionShape2D" parent="ScoreBoundaries/EnemyBoundary"]
+position = Vector2(1283, 364)
+shape = SubResource("RectangleShape2D_u5btt")
+
+[node name="BallHandler" type="Node2D" parent="."]
+script = ExtResource("1_i0s08")
+
+[node name="Background" type="Sprite2D" parent="."]
+light_mask = 0
+visibility_layer = 2
+z_index = -1
+position = Vector2(638, 365)
+scale = Vector2(1.59352, 1.57692)
+texture = ExtResource("3_36rhv")
+
+[node name="Enemy" parent="." instance=ExtResource("5_vlnr6")]
+position = Vector2(1270, 365)
+script = ExtResource("4_g3x1b")
+
+[node name="Player" parent="." instance=ExtResource("4_i8i34")]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="TopWall" type="StaticBody2D" parent="Walls"]
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls/TopWall"]
+position = Vector2(641, 2)
+shape = SubResource("RectangleShape2D_qnwbm")
+
+[node name="BottomWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(1, 7)
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls/BottomWall"]
+position = Vector2(640, 720)
+shape = SubResource("RectangleShape2D_qnwbm")
+
+[editable path="Player"]
