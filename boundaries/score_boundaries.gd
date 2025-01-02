@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Signal-based approach to notifying both the ball and score handlers that someone scored
 func _on_body_entered_player_boundary(body: Node2D):
-	emit_signal("player_scored", body)
+	emit_signal("enemy_scored", body)
 
 func _on_body_entered_enemy_boundary(body: Node2D):
-	emit_signal("enemy_scored", body)
+	emit_signal("player_scored", body)
