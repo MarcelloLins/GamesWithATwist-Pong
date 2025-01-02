@@ -25,7 +25,7 @@ script = ExtResource("6_scdf0")
 [node name="PlayerBoundary" type="Area2D" parent="ScoreBoundaries"]
 
 [node name="Collision" type="CollisionShape2D" parent="ScoreBoundaries/PlayerBoundary"]
-position = Vector2(-3.5, 365)
+position = Vector2(-4, 365)
 shape = SubResource("RectangleShape2D_u5btt")
 
 [node name="EnemyBoundary" type="Area2D" parent="ScoreBoundaries"]
@@ -70,19 +70,19 @@ shape = SubResource("RectangleShape2D_qnwbm")
 script = ExtResource("7_x6dwr")
 
 [node name="Player" type="Label" parent="Score"]
-offset_left = 570.0
-offset_top = 150.0
-offset_right = 640.0
-offset_bottom = 226.0
+offset_left = 567.0
+offset_top = 317.0
+offset_right = 637.0
+offset_bottom = 393.0
 text = "0
 "
 label_settings = SubResource("LabelSettings_leqsl")
 
 [node name="Enemy" type="Label" parent="Score"]
-offset_left = 640.0
-offset_top = 150.0
-offset_right = 710.0
-offset_bottom = 226.0
+offset_left = 637.0
+offset_top = 317.0
+offset_right = 707.0
+offset_bottom = 393.0
 text = "0
 "
 label_settings = SubResource("LabelSettings_leqsl")

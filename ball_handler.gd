@@ -13,7 +13,12 @@ func _ready() -> void:
 	scoreBoundaries.connect("enemy_scored", _on_scored)
 
 func _on_scored(ball: Node2D):
-	# Respawn Ball
+	# ignores nodes that aren't the ball (in case two collision areas merge and result in the player paddle being received here)
+	if ball.name != "Ball":
+		# TODO: Fix this later
+		return
+
 	ball.queue_free()
+	# Respawn Ball
 	var newBall = ballScene.instantiate()
 	get_parent().call_deferred("add_child", newBall)

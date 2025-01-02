@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED :float = 1.0
+const SPEED :float = 5.0
 var ball: CharacterBody2D
 
 @onready var yOffset = position.y
@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 		motion = Vector2(0, 1 * SPEED)
 
 	# Y movement is limited to up and down, we won't move diagonally
-	#move_and_collide(motion)
+	move_and_collide(motion)
 
 func check_and_update():
 	var balls = get_tree().get_nodes_in_group("balls")

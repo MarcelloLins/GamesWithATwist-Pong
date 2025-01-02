@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed :float = 400
+@export var speed :float = 650
 var motion :Vector2
 
 # Initial launching of the ball
