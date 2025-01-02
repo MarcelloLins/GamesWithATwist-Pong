@@ -14,8 +14,7 @@ func _ready() -> void:
 
 func _on_scored(ball: Node2D):
 	# ignores nodes that aren't the ball (in case two collision areas merge and result in the player paddle being received here)
-	if ball.name != "Ball":
-		# TODO: Fix this later
+	if !ball.is_in_group("balls"):
 		return
 
 	ball.queue_free()
