@@ -16,6 +16,10 @@ func _ready() -> void:
 	motion = Vector2(random_x, random_y)
 	move_and_collide(motion)
 
+# Changes the current trajectory of the ball to go in the oposite direction
+func rewind():
+	motion = motion * -1
+
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(motion * speed * delta)
 

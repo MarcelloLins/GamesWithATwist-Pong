@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://blejgpm0l2qee"]
+
+[ext_resource type="Texture2D" uid="uid://h8vygsc1vjoo" path="res://assets/powerups/Rewind.png" id="1_5ebld"]
+[ext_resource type="Script" path="res://powerups/powerup.gd" id="1_sukud"]
+[ext_resource type="Shader" path="res://bouncy.gdshader" id="2_ea4n1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_smalh"]
+shader = ExtResource("2_ea4n1")
+shader_parameter/height = 5.0
+shader_parameter/speed = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tb6no"]
+radius = 32.6653
+
+[node name="Powerup" type="Node2D"]
+script = ExtResource("1_sukud")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_smalh")
+position = Vector2(-16.656, -16.7793)
+scale = Vector2(2.3965, 2.41424)
+texture = ExtResource("1_5ebld")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-16.656, -16.779)
+shape = SubResource("CircleShape2D_tb6no")

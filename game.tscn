@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bve8xyxsb6elv"]
+[gd_scene load_steps=17 format=3 uid="uid://bve8xyxsb6elv"]
 
 [ext_resource type="Script" path="res://ball_handler.gd" id="1_i0s08"]
 [ext_resource type="Texture2D" uid="uid://omq5dg8ov81y" path="res://assets/Board.png" id="3_36rhv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://score.gd" id="7_x6dwr"]
 [ext_resource type="FontFile" uid="uid://wnov37ki34fy" path="res://assets/BitPotionExt.ttf" id="8_0njy4"]
 [ext_resource type="Script" path="res://timer.gd" id="8_hkry6"]
+[ext_resource type="Script" path="res://powerups/powerups.gd" id="10_ka44w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5btt"]
 size = Vector2(7, 716.5)
@@ -121,6 +122,12 @@ label_settings = SubResource("LabelSettings_leqsl")
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="Timer"]
+autostart = true
+
+[node name="PowerupHandler" type="Node2D" parent="."]
+script = ExtResource("10_ka44w")
+
+[node name="Timer" type="Timer" parent="PowerupHandler"]
 autostart = true
 
 [editable path="Player"]
