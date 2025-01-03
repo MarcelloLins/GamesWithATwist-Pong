@@ -20,6 +20,9 @@ func _ready() -> void:
 func rewind():
 	motion = motion * -1
 
+func stop():
+	speed = 0
+
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(motion * speed * delta)
 

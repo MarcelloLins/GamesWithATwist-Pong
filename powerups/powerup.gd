@@ -12,6 +12,8 @@ var _type :PowerUp.Type
 	PowerUp.Type.REWIND: _ball_collided_rewind
 }
 
+signal power_up_activated(type: PowerUp.Type)
+
 func _ready() -> void:
 	position = get_random_coordinates()
 	# Power Up Type Randomization
@@ -50,7 +52,10 @@ func _ball_collided_rewind(ball: Node2D):
 	# ignores nodes that aren't the ball (power ups can spawn on top of one another)
 	if !ball.is_in_group("balls"):
 		return
-	print("Rewind!")
+	# Rewinds ball
 	ball.rewind()
+	# Signals that this was triggered
+	emit_signal("power_up_activated", PowerUp.Type.REWIND)
+
 	# destroy ourselves
 	queue_free()

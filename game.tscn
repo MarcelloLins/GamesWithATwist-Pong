@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://score.gd" id="7_x6dwr"]
 [ext_resource type="FontFile" uid="uid://wnov37ki34fy" path="res://assets/BitPotionExt.ttf" id="8_0njy4"]
 [ext_resource type="Script" path="res://timer.gd" id="8_hkry6"]
-[ext_resource type="Script" path="res://powerups/powerups.gd" id="10_ka44w"]
+[ext_resource type="Script" path="res://powerups/powerup_handler.gd" id="10_pkma5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5btt"]
 size = Vector2(7, 716.5)
@@ -125,9 +125,22 @@ horizontal_alignment = 1
 autostart = true
 
 [node name="PowerupHandler" type="Node2D" parent="."]
-script = ExtResource("10_ka44w")
+script = ExtResource("10_pkma5")
 
 [node name="Timer" type="Timer" parent="PowerupHandler"]
 autostart = true
+
+[node name="Announcement" type="Label" parent="PowerupHandler"]
+offset_left = 515.0
+offset_top = 579.0
+offset_right = 762.0
+offset_bottom = 658.0
+text = "
+"
+label_settings = SubResource("LabelSettings_leqsl")
+horizontal_alignment = 1
+
+[node name="ClearAnnouncement" type="Timer" parent="PowerupHandler"]
+wait_time = 2.0
 
 [editable path="Player"]
